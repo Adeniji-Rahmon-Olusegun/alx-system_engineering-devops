@@ -1,2 +1,2 @@
 #!/bin/bash
-mpv " StarWars IV.mp4"
+telnet towel.blinkenlights.nl
