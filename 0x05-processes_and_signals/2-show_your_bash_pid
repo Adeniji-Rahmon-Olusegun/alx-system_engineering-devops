@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Displays a list of currently running processes
+# shellcheck disable=SC2009
+
+while read -r pids; do
+	
+	if [[ "$pids" == *bash* ]]; then
+		echo "$pids"
+	fi
+done < <(ps aux)
