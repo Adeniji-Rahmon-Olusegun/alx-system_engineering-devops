@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 # Alternative way to terminate a process
 
-if pgrep "4-to_infinity_and_beyond" > /dev/null; then
-	pkill -SIGNIT "4-to_infinity_and_beyond"
-fi
+pkill -f beyond
