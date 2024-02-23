@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Displays the PID, along with the process name, of processes whose name contain the word bash
+
+for dir in /proc/*/; do
+	pid=$(basename "$dir")
+	if [[ -f "$pid/status" ]]; then
+		p_name=$(awk '/Name/ {print $2}' "$pid/status")
+		if [[ "$p_name" == *bash* ]]; then
+			echo "$pid $p_name"
+		fi
+	fi
+done
