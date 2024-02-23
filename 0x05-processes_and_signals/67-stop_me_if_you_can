@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Alternative way to terminate a process
+
+pkill -f beyond
