@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#This script prints Best School 10 times
+
+idx=9
+until [ $idx -lt 0 ]; do
+	echo "Best School"
+	let idx-=1
+done
