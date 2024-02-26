@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script pints Hi at the 9th index
+
+idx=0
+while [ $idx -lt 10 ]; do
+	if [ $idx -eq 8 ]; then
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+	(( idx++ ))
+done
