@@ -1,9 +1,10 @@
 # creates a file in /tmp
 
-file { '/tmp/school':
-  ensure  => 'file',
-  content => 'I love Puppet',
-  mode    => '0774',
+file { 'school':
+  ensure  => present,
+  path    => '/tmp/school',
   owner   => 'www-data',
   group   => 'www-data'
+  mode    => '0744',
+  content => 'I love Puppet',
 }
