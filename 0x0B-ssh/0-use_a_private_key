@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Adds a private key to my ubuntu server
+
+cat ~/.ssh/school | ssh ubuntu@35.175.135.80
