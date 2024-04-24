@@ -6,8 +6,6 @@ apt-get update
 
 apt-get install -y nginx
 
-sed -i 's/^listen\s*80;/listen 80;/g' /etc/nginx/sites-available/default
+echo "hello world" /var/www/html/index.html
 
 service nginx restart
-
-echo "<html><body><h1>Hello World!</h1></body></html>" > /var/www/html/index.html
