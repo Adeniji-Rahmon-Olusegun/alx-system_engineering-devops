@@ -16,7 +16,7 @@ echo "server {
     index  index.html;
     
     location /redirect_me {
-        return 301 https://www.linkedin.com/in/rahmon-adeniji-7b67a8101/;
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
 }" > /etc/nginx/sites-available/default
 
