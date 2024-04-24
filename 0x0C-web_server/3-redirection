@@ -8,17 +8,13 @@ apt-get update
 
 apt-get install -y nginx
 
-
+echo "Hello World!" > /var/www/html/index.html 
 echo "server {
     listen 80 default server;
     listen [::]:80 default_server;
     root   /var/www/html;
-    index  index.html index.htm;
+    index  index.html;
     
-    location / {
-        echo "Hello World!"
-    }
-
     location /redirect_me {
         return 301 https://www.linkedin.com/in/rahmon-adeniji-7b67a8101/;
     }
