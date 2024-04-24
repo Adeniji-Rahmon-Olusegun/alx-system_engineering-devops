@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# debugging the installation issue of Apache
+
+service apache2 start
