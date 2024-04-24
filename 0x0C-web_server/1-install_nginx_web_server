@@ -2,10 +2,12 @@
 # Installs nginx on my web-01 server
 # Nginx should be listening on port 80
 
+set -e
+
 apt-get update
 
 apt-get install -y nginx
 
 echo "Hello World!" > /var/www/html/index.html
 
-service nginx start
+service nginx restart
