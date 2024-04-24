@@ -9,11 +9,14 @@ apt-get update
 apt-get install -y nginx
 
 echo "Hello World!" > /var/www/html/index.html
+
+service nginx restart
+
 echo "server {
     listen 80;
     listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html
+    root   /var/www/html;
+    index  index.html;
     location /redirect_me {
         return 301 https://www.linkedin.com/in/rahmon-adeniji-7b67a8101/;
     }
