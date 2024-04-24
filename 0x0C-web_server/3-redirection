@@ -17,6 +17,7 @@ echo "server {
     listen [::]:80 default_server;
     root   /var/www/html;
     index  index.html;
+    server_name 52.201.229.120;
     location /redirect_me {
         return 301 https://www.linkedin.com/in/rahmon-adeniji-7b67a8101/;
     }
