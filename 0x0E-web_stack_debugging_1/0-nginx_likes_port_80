@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 # enable server to listen on port 80
-mv /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default
-cp /etc/nginx/sites-enabled/default/etc/nginx/sites-enabled/default
-service nginx stop
-pkill nginx
-service nginx start
+sudo sed -i 's/\blisten 8080\b/listen 80/g' /etc/nginx/sites-enabled/default
+sudo service nginx restart
