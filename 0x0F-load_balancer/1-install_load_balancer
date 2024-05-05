@@ -2,20 +2,22 @@
 # Install and configure HAproxy on your lb-01 server.
 # Configure HAproxy so that it send traffic to web-01 and web-02
 # Distribute requests using a roundrobin algorithm
+
 sudo apt-get update
 sudo apt-get -y install haproxy
-echo 'ENABLED=1' | sudo tee -a /etc/default/haproxy > /dev/null
-sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
 
-sudo tee /etc/haproxy/haproxy.cfg > /dev/null << 'CONFIG'
+sudo -s <<EOF
+echo "
 frontend front_http
-	bind *:80
-	mode http
-	default_backend back_http
+        bind *:80
+        mode http
+        default_backend back_http
+
 backend back_http
-	balance roundrobin
-	server 478232-web-01 52.201.229.120:80 check
-	server 478232-web-02 54.146.76.101:80 check
-CONFIG
+        balance roundrobin
+        server 478232-web-01 52.201.229.120:80
+        server 478232-web-02 54.146.76.101:80
+" >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
+EOF
