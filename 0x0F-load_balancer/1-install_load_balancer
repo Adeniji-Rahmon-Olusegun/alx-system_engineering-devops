@@ -4,7 +4,18 @@
 # Distribute requests using a roundrobin algorithm
 sudo apt-get update
 sudo apt-get -y install haproxy
-sudo sed -i 's/^ENABLED=.*/ENABLED=1/' /etc/default/haproxy
-sudo sed -i '37 a \\nfrontend front\n\tbind *:80\n\tmode http\n\tdefault_backend back' /etc/haproxy/haproxy.cfg
-sudo sed -i '44 a \\nbackend\n\tbalance roundrobin\n\tserver web-01 52.201.229.120 check\n\tserver web-02 54.146.76.101 check' /etc/haproxy/haproxy.cfg
+echo 'ENABLED=1' | sudo tee -a /etc/default/haproxy > /dev/null
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
+
+sudo tee /etc/haproxy/haproxy.cfg > /dev/null << 'CONFIG'
+frontend front_http
+	bind *:80
+	mode http
+	default_backend back_http
+backend back_http
+	balance roundrobin
+	server 478232-web-01 52.201.229.120:80 check
+	server 478232-web-02 54.146.76.101:80 check
+CONFIG
+
 sudo service haproxy restart
