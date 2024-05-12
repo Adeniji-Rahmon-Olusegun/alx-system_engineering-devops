@@ -35,19 +35,15 @@ defaults
 
 frontend front_http
         bind *:80
-        reqadd X-Forwarded-Proto:\ http
-        acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-        use_backend certbot-back if letsencrypt-acl
-
+        mode http
+        http-request redirect scheme https code 301 unless { ssl_fc }
+        http-request add-header X-Forwarded-Proto http
         default_backend back_http
 
 frontend www-https
-        bind *:443 ssl crt /etc/letsencrypt/live/www.superior-way.tech/fullchain.pem
-        reqadd X-Forwarded-Proto:\ https
+        bind *:443 ssl crt /etc/haproxy/certs/www.superior-way.tech.pem
+        http-request add-header X-Forwarded-Proto https
         default_backend back_http
-
-backend certbot-back
-        server letsencrypt 127.0.0.1:8888
 
 backend back_http
         balance roundrobin
