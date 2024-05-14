@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 # fix container so that Nginx is running as the nginx user.
 
-sed -i 's/^user .*/user nginx;/g' /etc/nginx/nginx.conf
-sed -i 's/^listen .*/listen 8080;/g' /etc/nginx/nginx.conf
+#!/usr/bin/env bash
+# fix container so that Nginx is running as the nginx user.
 
-sudo service nginx restart
+sudo service nginx stop
+sudo sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+chmod 644 /etc/nginx/nginx.conf
+chown nginx:nginx /etc/nginx/ -R
+
+for id in $(pidof apache2); do
+        kill "$id"
+done
+
+sudo -u nginx service nginx start
