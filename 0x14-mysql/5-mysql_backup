@@ -6,6 +6,6 @@ dump_file="backup.sql"
 mysqldump --all-databases -u root --password="$1" > "$dump_file"
 
 date_format=$(date +"%d-%m-%Y")
-compressed_file="$date.tar.gz"
+compressed_file="$date_format.tar.gz"
 
 tar -czvf "$compressed_file" "$dump_file"
