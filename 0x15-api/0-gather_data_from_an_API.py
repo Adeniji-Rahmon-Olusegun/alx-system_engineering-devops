@@ -32,7 +32,7 @@ if __name__ == "__main__":
     done_tasks = len(finished_tasks)
 
     print(
-            f"Employee {employee} is done with tasks({done_tasks}/{all_task}):"
+            "Employee {} is done with tasks({}/{}):".format(employee, done_tasks, all_task)
     )
 
     for title in finished_tasks:
