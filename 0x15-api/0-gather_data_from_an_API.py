@@ -13,8 +13,9 @@ def fetch_info(rest_url):
 
 if __name__ == "__main__":
 
+    user_id = int(sys.argv[1])
     user_info = fetch_info(
-            f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}"
+            f"https://jsonplaceholder.typicode.com/users/{user_id}"
     )
 
     employee = user_info.get("name")
