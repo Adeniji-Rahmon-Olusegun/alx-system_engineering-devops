@@ -26,12 +26,12 @@ if __name__ == "__main__":
 
     finished_tasks = [done["title"] for done in tasks if done["completed"]]
 
-    all_tasks = len(tasks)
+    all_task = len(tasks)
 
     done_tasks = len(finished_tasks)
 
     print(
-            f"Employee employee is done with tasks({done_tasks}/{all_tasks}):"
+            f"Employee {employee} is done with tasks({done_tasks}/{all_task}):"
     )
 
     for title in finished_tasks:
