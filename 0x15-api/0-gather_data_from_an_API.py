@@ -9,8 +9,6 @@ def fetch_info(rest_url):
     """Gets information or data from the desired url"""
     response = requests.get(rest_url)
 
-    response.raise_for_status()
-
     return response.json()
 
 if __name__ == "__main__":
