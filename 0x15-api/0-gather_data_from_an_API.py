@@ -20,6 +20,7 @@ if __name__ == "__main__":
     )
 
     employee = user_info.get("name")
+    print(len(employee))
 
     tasks = fetch_info(
             f"https://jsonplaceholder.typicode.com/todos?userId={user_id}"
@@ -31,9 +32,7 @@ if __name__ == "__main__":
 
     done_tasks = len(finished_tasks)
 
-    print(
-            "Employee {} is done with tasks({}/{}):".format(employee, done_tasks, all_task)
-    )
+    print("Employee {} is done with tasks({}/{}):".format(employee, done_tasks, all_task))
 
     for title in finished_tasks:
         print(f"\t {title}")
