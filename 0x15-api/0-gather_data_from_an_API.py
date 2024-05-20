@@ -11,6 +11,7 @@ def fetch_info(rest_url):
 
     return response.json()
 
+
 if __name__ == "__main__":
 
     user_id = int(sys.argv[1])
@@ -21,7 +22,7 @@ if __name__ == "__main__":
     employee = user_info.get("name")
 
     tasks = fetch_info(
-            f"https://jsonplaceholder.typicode.com/todos?userId={sys.argv[1]}"
+            f"https://jsonplaceholder.typicode.com/todos?userId={user_id}"
     )
 
     finished_tasks = [done.get("title") for done in tasks if done.get("completed")]
