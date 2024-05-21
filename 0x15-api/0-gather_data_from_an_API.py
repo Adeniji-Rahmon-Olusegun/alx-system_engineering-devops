@@ -20,8 +20,7 @@ if __name__ == "__main__":
     )
 
     employee = user_info.get("name")
-    print(len(employee))
-
+    
     tasks = fetch_info(
             f"https://jsonplaceholder.typicode.com/todos?userId={user_id}"
     )
