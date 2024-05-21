@@ -20,7 +20,7 @@ if __name__ == "__main__":
             f"https://jsonplaceholder.typicode.com/users/{user_id}"
     )
 
-    employee = user_info.get("name")
+    employee = user_info.get("username")
 
     tasks = fetch_info(
             f"https://jsonplaceholder.typicode.com/todos?userId={user_id}"
