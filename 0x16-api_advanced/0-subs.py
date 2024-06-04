@@ -3,6 +3,7 @@
 
 import requests
 
+
 def number_of_subscribers(subreddit):
     """Pull number of subcribers from Reddit API"""
 
@@ -22,4 +23,3 @@ def number_of_subscribers(subreddit):
 
     except requets.RequestException:
         return 0
-
