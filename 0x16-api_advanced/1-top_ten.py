@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Module contains function to pull top ten hot posts from Reddit API"""
 
+import requests
+
 
 def top_ten(subreddit):
     """
@@ -9,7 +11,6 @@ def top_ten(subreddit):
     Args:
         subreddit (str): Name of the subreddit
     """
-    import requests
 
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
 
