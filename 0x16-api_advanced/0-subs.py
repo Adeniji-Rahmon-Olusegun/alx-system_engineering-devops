@@ -5,11 +5,19 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """Pull number of subcribers from Reddit API"""
+    """
+    Pull number of subcribers from Reddit API
+
+    Args:
+        subreddit (str): Name of the subreddit
+
+    Returns:
+        int: Number of subscribers if subreddit is valid and 0 otherwise
+    """
 
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
 
-    headers = {'User-Agent': 'Sub Agent'}
+    headers = {'User-Agent': 'Custom User Agent for Subscriber Count'}
 
     try:
         response = requests.get(url, headers=headers, allow_redirects=False)
