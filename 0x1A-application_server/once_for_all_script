@@ -20,9 +20,9 @@ sudo apt install -y gunicorn
 rm -rf AirBnB_clone_v*
 
 # cloning AirBnB repos
-git clone https://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@github.com/Adeniji-Rahmon-Olusegun/AirBnB_clone_v2
-git clone https://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@github.com/Adeniji-Rahmon-Olusegun/AirBnB_clone_v3
-git clone https://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@github.com/Adeniji-Rahmon-Olusegun/AirBnB_clone_v4
+git clone https://github.com/Adeniji-Rahmon-Olusegun/AirBnB_clone_v2
+git clone https://github.com/Adeniji-Rahmon-Olusegun/AirBnB_clone_v3
+git clone https://github.com/Adeniji-Rahmon-Olusegun/AirBnB_clone_v4
 
 # cd into version 2 repos
 cd AirBnB_clone_v2
